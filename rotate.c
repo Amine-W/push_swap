@@ -1,42 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/31 00:43:36 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/09 16:55:20 by amwahab          ###   ########.fr       */
+/*   Created: 2025/06/09 14:56:34 by amwahab           #+#    #+#             */
+/*   Updated: 2025/06/09 16:57:25 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void rotate(t_stack *stack)
 {
-	t_stack *sa;
-	t_stack *sb;
-	int	i;
-	
-	//parsing atoi stocker dans le stack 
-	sa = init_stack();
-	sb = init_stack();
-	
-	i = 0;
-	while(i < 9)
-	{
-		empiler(sa, i);
-		i++;
-	}
-	i = 10;
-	while(i < 20)
-	{
-		empiler(sb, i);
-		i++;
-	}
-	afficher_pile(sa, "a");
-	afficher_pile(sb, "b");
-	rotate(sb);
-	afficher_pile(sa, "a");
-	afficher_pile(sb, "b");
+	t_element *ancien_debut;
+	if (!stack || !stack->debut || stack->debut == stack->fin)
+		return ;
+	ancien_debut = stack->debut;
+	stack->debut = ancien_debut->prochain;
+	stack->debut->precedent = NULL;
+	ancien_debut->prochain = NULL;
+	ancien_debut->precedent = stack->fin;
+	stack->fin->prochain = ancien_debut;
+	stack->fin = ancien_debut;
 }

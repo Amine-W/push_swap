@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 04:34:48 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/09 14:53:16 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/06/09 16:56:15 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,18 @@ typedef struct s_stack
 } t_stack;
 
 // stack 
-t_stack *init_stack(void);
+t_stack	*init_stack(void);
 void	empiler(t_stack *stack, int value);
-void afficher_pile(t_stack *stack, const char *nom);
+void	afficher_pile(t_stack *stack, const char *nom);
 
 //push
-void pb(t_stack *a, t_stack *b);
-void pa(t_stack *a, t_stack *b);
+void	pb(t_stack *a, t_stack *b);
+void	pa(t_stack *a, t_stack *b);
 
 //swap
 void	swap(t_stack *stack);
+
+//rotate
+void	rotate(t_stack *stack);
 
 # endif
