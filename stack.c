@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 10:00:24 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/08 15:42:21 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/06/09 14:28:53 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_stack *init_stack(void)
 void	empiler(t_stack *stack, int value)
 {
 	t_element *new_element = malloc(sizeof(t_element));
-	if(new_element)
+	if(!new_element)
 		return ;
 		
 	new_element->valeur = value; //lui attribue la value donnee en parametre
@@ -35,5 +35,23 @@ void	empiler(t_stack *stack, int value)
 	
 	stack->debut = new_element;
 	stack->size++;
+}
+
+void afficher_pile(t_stack *stack, const char *nom)
+{
+	t_element *current;
+
+	if (!stack || !stack->debut)
+	{
+		printf("Pile %s est vide.\n", nom);
+		return ;
+	}
+	printf("Pile %s :\n", nom);
+	current = stack->debut;
+	while (current)
+	{
+		printf("%d\n", current->valeur);
+		current = current->prochain;
+	}
 }
 
