@@ -6,13 +6,13 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 00:43:36 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/09 16:55:20 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/06/23 08:16:57 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	main(void)
 {
 	t_stack *sa;
 	t_stack *sb;
@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 	}
 	afficher_pile(sa, "a");
 	afficher_pile(sb, "b");
-	rotate(sb);
+	rotate(sa);
 	afficher_pile(sa, "a");
 	afficher_pile(sb, "b");
 }
