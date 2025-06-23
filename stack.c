@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 10:00:24 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/23 08:19:27 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/06/23 08:28:30 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	empiler(t_stack *stack, int value)
 	if(!new_element)
 		return ;
 		
-	new_element->valeur = value; //lui attribue la value donnee en parametre
-	new_element->prochain = stack->debut; //le fait pointe vers l'ancien sommet
-	new_element->precedent = NULL; // pas de precedent au sommet
+	new_element->valeur = value;
+	new_element->prochain = stack->debut;
+	new_element->precedent = NULL;
 	
 	if(stack->debut != NULL) // si la pile n'est pas vide donc pour la premiere fois
 		stack->debut->precedent = new_element;  // pointe vers le nouveau

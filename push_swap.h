@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 04:34:48 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/09 16:56:15 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/06/10 16:29:41 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ void	swap(t_stack *stack);
 
 //rotate
 void	rotate(t_stack *stack);
+void	reverse_rotate(t_stack *stack);
 
 # endif

@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 14:56:34 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/23 08:22:58 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/06/23 08:27:33 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,3 @@ void rotate(t_stack *stack)
 	stack->debut = sa2;
 	stack->fin = sa1;
 }
-
