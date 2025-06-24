@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 10:00:24 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/23 08:28:30 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/06/23 09:11:51 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 t_stack *init_stack(void) 
 {
 	t_stack *stack = malloc(sizeof(t_stack));
+	if(!stack)
+		return (NULL);
 	stack->debut = NULL;
 	stack->fin=NULL;
 	stack->size = 0;

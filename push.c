@@ -6,13 +6,13 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 04:30:21 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/09 14:49:15 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/06/23 08:53:26 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void pb(t_stack *a, t_stack *b)
+void pa(t_stack *a, t_stack *b)
 {
 	t_element *sa1;
 	t_element *sb1; 
@@ -37,7 +37,7 @@ void pb(t_stack *a, t_stack *b)
 	a->size--;
 }
 
-void pa(t_stack *a, t_stack *b)
+void pb(t_stack *a, t_stack *b)
 {
 	t_element *sa1;
 	t_element *sb1; 

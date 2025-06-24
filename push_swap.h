@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 04:34:48 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/10 16:29:41 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/06/24 11:44:35 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 
 typedef struct s_element
 {
-    int valeur;
+	int valeur;
+	int	index;
 	struct s_element *precedent;
     struct s_element *prochain;
 }   t_element;
@@ -44,6 +45,10 @@ void	swap(t_stack *stack);
 
 //rotate
 void	rotate(t_stack *stack);
-void	reverse_rotate(t_stack *stack);
+
+//sort
+void	quick_sort(t_stack *stack);
+void	radix_sort_recursive(t_stack *a, t_stack *b, int max_bits, int current_bit);
+void	radix_sort(t_stack *a, t_stack *b);
 
 # endif

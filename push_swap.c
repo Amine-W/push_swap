@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 00:43:36 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/23 08:28:47 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/06/24 10:24:19 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,23 @@ int	main(void)
 	sa = init_stack();
 	sb = init_stack();
 	
-	i = 0;
-	while(i < 9)
-	{
-		empiler(sa, i);
-		i++;
-	}
+	i = 1337;
+	empiler(sa,i);
+	i = 1;
+	empiler(sa,i);
+	i = 13;
+	empiler(sa,i);
+	i = 985654;
+	empiler(sa,i);
+	i = 5;
+	empiler(sa,i);
 	i = 10;
-	while(i < 20)
-	{
-		empiler(sb, i);
-		i++;
-	}
 	afficher_pile(sa, "a");
 	afficher_pile(sb, "b");
-	rotate(sa);
+	quick_sort(sa);
+	afficher_pile(sa, "a");
+	afficher_pile(sb, "b");
+	radix_sort(sa, sb);
 	afficher_pile(sa, "a");
 	afficher_pile(sb, "b");
 }
