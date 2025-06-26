@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 00:43:36 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/24 10:24:19 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/06/26 10:42:17 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,6 @@ int	main(void)
 	radix_sort(sa, sb);
 	afficher_pile(sa, "a");
 	afficher_pile(sb, "b");
+	free(sa);
+	free(sb);
 }

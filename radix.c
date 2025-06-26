@@ -6,13 +6,13 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:32:46 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/24 12:03:51 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/06/26 10:34:53 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void radix_sort(t_stack *sa, t_stack *sb)
+void	radix_sort(t_stack *sa, t_stack *sb)
 {
 	int	max_bits;
 	int	size;
@@ -20,39 +20,46 @@ void radix_sort(t_stack *sa, t_stack *sb)
 	size = sa->size;
 	printf("Début radix_sort\n");
 	max_bits = 0;
-	printf("maxbit[%d]", max_bits);
 	while ((size - 1) >> max_bits != 0)
 		max_bits++;
-	printf("maxbit[%d]", max_bits);
+	printf("maxbit[%d]\n\n", max_bits);
 	radix_sort_recursive(sa, sb, max_bits, 0);
 }
 
-void radix_sort_recursive(t_stack *sa, t_stack *sb, int max_bits, int current_bit)
+void	radix_sort_recursive(t_stack *sa, t_stack *sb, int max_bits, int current_bit)
 {
 	int	size;
 	int	i;
 	int	current_val;
-	
-	if (current_bit >= max_bits)
+
+	if (current_bit == max_bits)
 		return ;
 	size = sa->size;
+	printf("size[%d]\n", size);
+	printf("current_bit[%d]\n", current_bit);
+	afficher_pile(sa, "stack_a");
+	afficher_pile(sb, "stack_b");
 	i = 0;
 	while (i < size)
 	{
 		current_val = sa->debut->valeur;
+		printf("valeur a traiter: [%d]\n", current_val);
 		if (((current_val >> current_bit) & 1) == 0)
 		{
 			pb(sa, sb);
-			printf("pb: moved %d from A to B\n", current_val);
+			afficher_pile(sb, "stack_b");
+			afficher_pile(sa, "stack_a");
 		}
 		else
 			rotate(sa);
 		i++;
+		printf("index[%d]\n\n", i);
 	}
 	while (sb->size > 0)
 	{
 		pa(sa, sb);
-		printf("pb: moved %d from A to B\n", current_val);	
+		afficher_pile(sb, "stack_b");
+		afficher_pile(sa, "stack_a");
 	}
 	radix_sort_recursive(sa, sb, max_bits, current_bit + 1);
 }
