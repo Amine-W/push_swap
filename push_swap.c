@@ -6,33 +6,27 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 00:43:36 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/26 10:42:17 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/06/27 09:42:27 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_stack *sa;
 	t_stack *sb;
-	int	i;
+	int *tab;
 	
-	//parsing atoi stocker dans le stack 
+	if(argc > 2)
+		return (0);
+		
 	sa = init_stack();
 	sb = init_stack();
 	
-	i = 1337;
-	empiler(sa,i);
-	i = 1;
-	empiler(sa,i);
-	i = 13;
-	empiler(sa,i);
-	i = 985654;
-	empiler(sa,i);
-	i = 5;
-	empiler(sa,i);
-	i = 10;
+	tab = atoi(argv[1]);
+	empiler(sa, tab);
+	empiler(sb, tab);
 	afficher_pile(sa, "a");
 	afficher_pile(sb, "b");
 	quick_sort(sa);

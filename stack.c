@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 10:00:24 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/26 10:42:45 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/06/27 09:35:36 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	empiler(t_stack *stack, int value)
 	t_element *new_element = malloc(sizeof(t_element));
 	if(!new_element)
 		return (free(new_element));
-		
 	new_element->valeur = value;
 	new_element->prochain = stack->debut;
 	new_element->precedent = NULL;

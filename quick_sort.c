@@ -6,13 +6,13 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 09:07:52 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/23 12:12:16 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/06/27 09:08:49 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int partition(int *tab, int low, int high)
+int	partition(int *tab, int low, int high)
 {
 	int	temp;
 	int	i;
@@ -31,13 +31,14 @@ int partition(int *tab, int low, int high)
 		}
 		j++;
 	}
-	temp = tab[i + 1];
-	tab[i + 1] = tab[high];
+	i++;
+	temp = tab[i];
+	tab[i] = tab[high];
 	tab[high] = temp;
-	return (i + 1);
+	return (i);
 }
 
-void quick_sort_array(int *tab, int low, int high)
+void	quick_sort_array(int *tab, int low, int high)
 {
 	int	pivot;
 	
@@ -49,7 +50,7 @@ void quick_sort_array(int *tab, int low, int high)
 	}
 }
 
-int *remplir_tab(t_stack *stack)
+int	*remplir_tab(t_stack *stack)
 {
 	int 		*tab;
 	int			i;
@@ -57,7 +58,7 @@ int *remplir_tab(t_stack *stack)
 	
 	tab = malloc(sizeof(int) * stack->size);
 	if (!tab)
-		return (NULL);
+		return (free(tab), NULL);
 	current = stack->debut;
 	i = 0;
 	while (current)
