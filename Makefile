@@ -6,39 +6,42 @@
 #    By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/26 12:10:25 by amwahab           #+#    #+#              #
-#    Updated: 2025/06/26 12:12:14 by amwahab          ###   ########.fr        #
+#    Updated: 2025/06/28 12:33:41 by amwahab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc
-FLAGS = -Wall -Wextra -Werror
-
+# Nom de l'exécutable
 NAME = push_swap
 
-SRC = push_swap.c \
-	push.c \
-	quick_sort.c \
-	radix.c \
-	rotate.c \
-	stack.c \
-	swap.c 
+# Compilateur et flags
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
 
-all: $(NAME)
+SRC = push_swap.c stack.c push.c quick_sort.c radix.c rotate.c input_security.c swap.c
+OBJ = $(SRC:.c=.o)
 
-OBJS = $(SRC:.c=.o)
+# Répertoire de la libft
+LIBFT_DIR = Libft
+LIBFT = $(LIBFT_DIR)/libft.a
 
-%.o: %.c
-	$(CC) $(FLAGS) -c $< -o $@
+# Compilation
+all: $(LIBFT) $(NAME)
 
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+$(LIBFT):
+	@$(MAKE) -C $(LIBFT_DIR) > /dev/null
+	@echo "libft OK"
+
+$(NAME): $(OBJ)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT) > /dev/null
+	@echo "push_swap OK"
 
 clean:
-	rm -f $(OBJS)
+	@$(MAKE) clean -C $(LIBFT_DIR) > /dev/null
+	@rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	@$(MAKE) fclean -C $(LIBFT_DIR) > /dev/null
+	@rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all re fclean clean

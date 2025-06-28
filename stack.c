@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 10:00:24 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/27 09:35:36 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/06/28 11:46:20 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	empiler(t_stack *stack, int value)
 	new_element->prochain = stack->debut;
 	new_element->precedent = NULL;
 	
-	if(stack->debut != NULL) // si la pile n'est pas vide donc pour la premiere fois
+	if(stack->debut != NULL)// si la pile n'est pas vide donc pour la premiere fois
 		stack->debut->precedent = new_element;  // pointe vers le nouveau
 	else
 		stack->fin=new_element;
@@ -57,4 +57,19 @@ void afficher_pile(t_stack *stack, const char *nom)
 		current = current->prochain;
 	}
 }
+
+void free_stack(t_stack *stack)
+{
+	t_element *current = stack->debut;
+	t_element *tmp;
+
+	while (current)
+	{
+		tmp = current;
+		current = current->prochain;
+		free(tmp);
+	}
+	free(stack);
+}
+
 
