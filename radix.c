@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:32:46 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/29 10:04:46 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/06/29 11:40:17 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	radix_sort_recursive(t_stack *sa, t_stack *sb, int max_bits, int current_bi
 	i = 0;
 	if (current_bit == max_bits)
 	{
-		while (sb->size > 0)
+		while (sb->size > 0)	
 			pa(sa, sb);
 		return ;
 	}
