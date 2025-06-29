@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 04:34:48 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/28 12:29:33 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/06/29 09:52:49 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ void	pa(t_stack *a, t_stack *b);
 void	swap(t_stack *stack);
 
 //rotate
-void	rotate(t_stack *stack);
+void rb(t_stack *stack);
+void ra(t_stack *stack);
 
 //sort
 void	quick_sort(t_stack *stack);
@@ -66,5 +67,6 @@ int	ft_strcmp(const char *s1, const char *s2);
 //utils
 char	**ft_split(char *str, char c);
 int	ft_atoi(const char *str);
+int ft_strlen_tab(char **tab);
  
 # endif

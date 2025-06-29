@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 00:43:36 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/28 12:38:35 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/06/29 10:16:50 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,14 @@ int	main(int argc, char **argv)
 		write(2, "Error\n", 6);
 		return (1);
 	}
-	i = 0;
-	while (array[i])
+	i = ft_strlen_tab(array) - 1;
+	while (i >= 0)
 	{
 		empiler(sa, ft_atoi(array[i]));
-		i++;
+		i--;
 	}
-	afficher_pile(sa, "A");
 	quick_sort(sa);
 	radix_sort(sa, sb);
-
 	return (0);
 }
 

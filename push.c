@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 04:30:21 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/26 10:33:00 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/06/28 12:47:47 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void pa(t_stack *sa, t_stack *sb)
 		sa->fin = sb1;
 	sa->debut = sb1;
 	sa->size++;
+	write(1, "pa\n", 3);
 }
 
 void pb(t_stack *sa, t_stack *sb)
@@ -59,5 +60,6 @@ void pb(t_stack *sa, t_stack *sb)
 		sb->fin = sa1;
 	sb->debut = sa1;
 	sb->size++;
+	write(1, "pb\n", 3);
 }
 
