@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 00:43:36 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/29 17:09:38 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/06/30 10:24:03 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,6 @@ int	main(int argc, char **argv)
 		str = ft_split(argv[1], ' ');
 	else
 		str = argv + 1;
-	i = ft_strlen_tab(str) - 1;
-	if( i == || i == 3 || i == 4 || i == 5)
-	{
-		small_sort(sa, i);
-		return (0);
-	}
 	sa = init_stack();
 	sb = init_stack();
 	i = ft_strlen_tab(str) - 1;
@@ -41,6 +35,11 @@ int	main(int argc, char **argv)
 		i--;
 	}
 	quick_sort(sa);
+	if (sa->size == 3 || sa->size == 5)
+	{
+		small_sort(sa, sb);
+		return (0);
+	}
 	radix_sort(sa, sb);
 	return (0);
 }
