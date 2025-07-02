@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 13:33:01 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/28 12:29:45 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/07/02 16:03:03 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	print_error(void)
 	write(2, "Error\n", 6);
 	exit(EXIT_SUCCESS);
 }
+
 int	check_digit(char **argv)
 {
 	int	i;
@@ -90,4 +91,3 @@ void	check_input(int argc, char **argv)
 		print_error();
 	}
 }
-

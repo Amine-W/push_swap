@@ -6,30 +6,28 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 04:30:21 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/28 12:47:47 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/07/02 16:01:31 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void pa(t_stack *sa, t_stack *sb)
+void	pa(t_stack *sa, t_stack *sb)
 {
-	t_element *sb1; 
+	t_element	*sb1;
 
 	if (!sb || !sb->debut)
 		return ;
 	sb1 = sb->debut;
 	sb->debut = sb->debut->prochain;
-
-	if(sb->debut)
+	if (sb->debut)
 		sb->debut->precedent = NULL;
 	else
 		sb->fin = NULL;
 	sb->size--;
-	
 	sb1->prochain = sa->debut;
 	sb1->precedent = NULL;
-	if(sa->debut)
+	if (sa->debut)
 		sa->debut->precedent = sb1;
 	else
 		sa->fin = sb1;
@@ -38,22 +36,21 @@ void pa(t_stack *sa, t_stack *sb)
 	write(1, "pa\n", 3);
 }
 
-void pb(t_stack *sa, t_stack *sb)
+void	pb(t_stack *sa, t_stack *sb)
 {
-	t_element *sa1;
+	t_element	*sa1;
 
-	if(!sa || !sa->debut)
-    return ;
+	if (!sa || !sa->debut)
+		return ;
 	sa1 = sa->debut;
 	sa->debut = sa->debut->prochain;
-	
-	if (sa->debut) 
+	if (sa->debut)
 		sa->debut->precedent = NULL;
 	else
 		sa->fin = NULL;
 	sa->size--;
-	sa1->prochain = sb->debut; 
-	sa1->precedent = NULL; 
+	sa1->prochain = sb->debut;
+	sa1->precedent = NULL;
 	if (sb->debut)
 		sb->debut->precedent = sa1;
 	else
@@ -62,4 +59,3 @@ void pb(t_stack *sa, t_stack *sb)
 	sb->size++;
 	write(1, "pb\n", 3);
 }
-

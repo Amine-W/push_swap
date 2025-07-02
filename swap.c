@@ -6,58 +6,42 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 04:30:29 by amwahab           #+#    #+#             */
-/*   Updated: 2025/07/02 15:14:06 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/07/02 15:58:17 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack *stack) // intervertir le 1er et le 2eme element 
+void	sa(t_stack *stack)
 {
-	// prendre le deuxieme element de la stack, lui faire pointer le prev par null et le next par le premier
-	//parcourir la liste index +1
-	t_element *premier;
-	t_element *second;
+	t_element	*premier;
+	t_element	*second;
 
-	if(!stack)
+	if (!stack)
 		return ;
-	premier = stack->debut; //cree une element on lui attribue la value du premier element pour une ;eilleure lisibilite
+	premier = stack->debut;
 	second = premier->prochain;
-
-	//on a les deux element qui sont liee entre eux, il faut les swap
-	premier->prochain = second->prochain; // desromais le premier a pris la place du second
-	
-	second->precedent = NULL; //comme c le premier avant il y a NULL
-	second->prochain = premier;  // liee au deuxieme par devant 
-	premier->precedent = second; //lier au second par derriere
-
-	// swap effectuee il faut mtn mettre a jour la stack
-
+	premier->prochain = second->prochain;
+	second->precedent = NULL;
+	second->prochain = premier;
+	premier->precedent = second;
 	stack->debut = second;
 	write(1, "sa\n", 3);
 }
 
-void	sb(t_stack *stack) // intervertir le 1er et le 2eme element 
+void	sb(t_stack *stack)
 {
-	// prendre le deuxieme element de la stack, lui faire pointer le prev par null et le next par le premier
-	//parcourir la liste index +1
-	t_element *premier;
-	t_element *second;
+	t_element	*premier;
+	t_element	*second;
 
-	if(!stack)
+	if (!stack)
 		return ;
-	premier = stack->debut; //cree une element on lui attribue la value du premier element pour une ;eilleure lisibilite
+	premier = stack->debut;
 	second = premier->prochain;
-
-	//on a les deux element qui sont liee entre eux, il faut les swap
-	premier->prochain = second->prochain; // desromais le premier a pris la place du second
-	
-	second->precedent = NULL; //comme c le premier avant il y a NULL
-	second->prochain = premier;  // liee au deuxieme par devant 
-	premier->precedent = second; //lier au second par derriere
-
-	// swap effectuee il faut mtn mettre a jour la stack
-
+	premier->prochain = second->prochain;
+	second->precedent = NULL;
+	second->prochain = premier;
+	premier->precedent = second;
 	stack->debut = second;
 	write(1, "sb\n", 3);
 }

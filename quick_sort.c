@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 09:07:52 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/27 09:08:49 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/07/02 15:50:27 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	partition(int *tab, int low, int high)
 void	quick_sort_array(int *tab, int low, int high)
 {
 	int	pivot;
-	
+
 	if (low < high)
 	{
 		pivot = partition(tab, low, high);
@@ -52,10 +52,10 @@ void	quick_sort_array(int *tab, int low, int high)
 
 int	*remplir_tab(t_stack *stack)
 {
-	int 		*tab;
+	int			*tab;
 	int			i;
 	t_element	*current;
-	
+
 	tab = malloc(sizeof(int) * stack->size);
 	if (!tab)
 		return (free(tab), NULL);
@@ -70,15 +70,14 @@ int	*remplir_tab(t_stack *stack)
 	return (tab);
 }
 
-void indexage(t_stack *stack, int *tab, int size)
+void	indexage(t_stack *stack, int *tab, int size)
 {
-	t_element *current;
+	t_element	*current;
+	int			i;
 
 	current = stack->debut;
 	while (current)
 	{
-		int i;
-
 		i = 0;
 		while (i < size)
 		{
@@ -93,10 +92,10 @@ void indexage(t_stack *stack, int *tab, int size)
 	}
 }
 
-void quick_sort(t_stack *stack)
+void	quick_sort(t_stack *stack)
 {
 	int	*tab;
-	
+
 	if (!stack || stack->size <= 1)
 		return ;
 	tab = remplir_tab(stack);
