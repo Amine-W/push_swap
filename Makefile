@@ -6,7 +6,7 @@
 #    By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/26 12:10:25 by amwahab           #+#    #+#              #
-#    Updated: 2025/06/28 15:05:40 by amwahab          ###   ########.fr        #
+#    Updated: 2025/07/02 14:16:22 by amwahab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = push_swap.c stack.c push.c quick_sort.c radix.c rotate.c input_security.c swap.c
+SRC = push_swap.c stack.c push.c quick_sort.c radix.c rotate.c input_security.c swap.c small_sort.c
 OBJ = $(SRC:.c=.o)
 
 # Répertoire de la libft

@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 04:34:48 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/29 09:52:49 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/07/02 15:13:53 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,23 +37,26 @@ typedef struct s_stack
 t_stack	*init_stack(void);
 void	empiler(t_stack *stack, int value);
 void	afficher_pile(t_stack *stack, const char *nom);
-void	free_stack(t_stack *stack);
+void	free_stack(t_stack *stack, t_stack* sb);
 
 //push
 void	pb(t_stack *a, t_stack *b);
 void	pa(t_stack *a, t_stack *b);
 
 //swap
-void	swap(t_stack *stack);
+void	sa(t_stack *stack);
+void	sb(t_stack *stack);
 
 //rotate
 void rb(t_stack *stack);
 void ra(t_stack *stack);
+void	rra(t_stack *stack);
 
 //sort
 void	quick_sort(t_stack *stack);
 void	radix_sort_recursive(t_stack *a, t_stack *b, int max_bits, int current_bit);
 void	radix_sort(t_stack *a, t_stack *b);
+void	small_sort(t_stack *sa, t_stack *sb, int i);
 
 //input	
 int		check_double(char **str);

@@ -6,56 +6,60 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 16:32:30 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/30 10:23:03 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/07/02 15:37:11 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three(t_stack *sa)
+void	sort_3(t_stack *stack)
 {
-	int a = sa->debut->valeur;
-	int b = sa->debut->prochain->valeur;
-	int c = sa->fin->valeur;
-
-	if (a > b && b < c && a < c)
-		swap(sa); // 2 1 3 -> 1 2 3
-	else if (a > b && b > c)
+	if (stack->debut->valeur < stack->debut->prochain->valeur
+		&& stack->debut->prochain->valeur < stack->fin->valeur)
+		return ;
+	else if (stack->debut->valeur < stack->fin->valeur
+		&& stack->fin->valeur < stack->debut->prochain->valeur)
 	{
-		swap(sa); // 3 2 1 -> 2 3 1
-		reverse_rotate(sa); // 2 3 1 -> 1 2 3
+		sa(stack);
+		ra(stack);
 	}
-	else if (a > b && b < c && a > c)
-		ra(sa); // 2 3 1 -> 3 1 2
-	else if (a < b && b > c && a < c)
+	else if (stack->debut->prochain->valeur < stack->debut->valeur
+		&& stack->debut->valeur < stack->fin->valeur)
+		sa(stack);
+	else if (stack->debut->prochain->valeur < stack->fin->valeur
+		&& stack->fin->valeur < stack->debut->valeur)
+		ra(stack);
+	else if (stack->fin->valeur < stack->debut->valeur
+		&& stack->debut->valeur < stack->debut->prochain->valeur)
+		rra(stack);
+	else if (stack->fin->valeur < stack->debut->prochain->valeur
+		&& stack->debut->prochain->valeur < stack->debut->valeur)
 	{
-		swap(sa); // 1 3 2 -> 3 1 2
-		ra(sa); // 3 1 2 -> 1 2 3
+		sa(stack);
+		rra(stack);
 	}
-	else if (a < b && b > c && a > c)
-		reverse_rotate(sa); // 2 3 1 -> 1 2 3
 }
 
-void	sort_five(t_stack *a, t_stack *b)
+void	sort_5(t_stack *sa, t_stack *stack_b)
 {
-	while (a->size > 3)
+	while (stack_b->size < 2)
 	{
-		if (a->debut->valeur == 0 || a->debut->valeur == 1)
-			pb(a, b);
+		if (sa->debut->valeur == 0 || sa->debut->valeur == 1)
+			pb(sa, stack_b);
 		else
-			ra(a);
+			ra(sa);
 	}
-	sort_three(a);
-	if (b->debut && b->debut->prochain && b->debut->valeur > b->debut->prochain->valeur)
-		swap(b);
-	pa(a, b);
-	pa(a, b);
+	sort_3(sa);
+	if (stack_b->debut->valeur < stack_b->debut->prochain->valeur)
+		sb(stack_b);
+	pa(sa, stack_b);
+	pa(sa, stack_b);
 }
 
-void	small_sort(t_stack *sa, t_stack *sb)
+void	small_sort(t_stack *sa, t_stack *sb, int i)
 {
-	if (sa->size == 3)
-		sort_three(sa);
-	if (sa->size == 5)
-		sort_five(sa, sb);
+	if (i == 3)
+		sort_3(sa);
+	if (i == 5)
+		sort_5(sa, sb);
 }

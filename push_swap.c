@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 00:43:36 by amwahab           #+#    #+#             */
-/*   Updated: 2025/06/30 10:24:03 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/07/02 15:36:49 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,9 @@ int	main(int argc, char **argv)
 		i--;
 	}
 	quick_sort(sa);
-	if (sa->size == 3 || sa->size == 5)
-	{
-		small_sort(sa, sb);
-		return (0);
-	}
+	if(sa->size == 3 || sa->size == 5)
+		return(small_sort(sa, sb, sa->size), 0);
 	radix_sort(sa, sb);
-	return (0);
+	return (free_stack(sa, sb), 0);
 }
 
