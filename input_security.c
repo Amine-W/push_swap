@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 13:33:01 by amwahab           #+#    #+#             */
-/*   Updated: 2025/07/02 16:03:03 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/07/02 16:27:53 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,11 @@ void	check_input(int argc, char **argv)
 	char	**array;
 
 	if (argc == 2)
+	{
 		array = ft_split(argv[1], ' ');
+		if(!array)
+			return(free(array));
+	}
 	else
 		array = argv + 1;
 	if (check_digit(array) || check_double(array) || check_int(array))

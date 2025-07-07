@@ -6,70 +6,79 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:32:46 by amwahab           #+#    #+#             */
-/*   Updated: 2025/07/02 15:59:48 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/07/07 15:33:01 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	radix_sort(t_stack *sa, t_stack *sb)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   radix.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/07 15:03:00 by amwahab           */
+/*   Updated: 2025/07/07 15:10:00 by amwahab          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+void	process_sa_to_sb(t_stack *sa, t_stack *sb, int bit)
 {
-	int	max_bits;
+	int	j;
 	int	size;
 
+	j = 0;
 	size = sa->size;
-	max_bits = 0;
-	while ((size - 1) >> max_bits != 0)
-		max_bits++;
-	radix_sort_recursive(sa, sb, max_bits, 0);
-}
-
-void	process_sa_bit(t_stack *sa, t_stack *sb, int current_bit)
-{
-	int	size;
-	int	i;
-	int	current_val;
-
-	i = 0;
-	size = sa->size;
-	while (i < size)
+	while (j < size)
 	{
-		current_val = sa->debut->valeur;
-		if (((current_val >> current_bit) & 1) == 0)
+		if (((sa->debut->valeur >> bit) & 1) == 0)
 			pb(sa, sb);
 		else
 			ra(sa);
-		i++;
+		j++;
 	}
 }
 
-void	process_sb_bit(t_stack *sa, t_stack *sb, int current_bit)
+void	process_sb_to_sa(t_stack *sa, t_stack *sb, int bit)
 {
-	int	i;
-	int	current_val;
+	int	j;
+	int	size;
 
-	i = sb->size;
-	while (i > 0)
+	j = 0;
+	size = sb->size;
+	while (j < size)
 	{
-		current_val = sb->debut->valeur;
-		if (((current_val >> (current_bit + 1)) & 1) == 1)
+		if (((sb->debut->valeur >> (bit + 1)) & 1) == 1)
 			pa(sa, sb);
 		else
 			rb(sb);
-		i--;
+		j++;
 	}
 }
 
-void	radix_sort_recursive(t_stack *sa, t_stack *sb,
-	int max_bits, int current_bit)
+void	radix_sort(t_stack *sa, t_stack *sb)
 {
-	if (current_bit == max_bits)
+	int	max_bits;
+	int	stack_size;
+	int	i;
+
+	max_bits = 0;
+	stack_size = sa->size;
+	while ((stack_size - 1) >> max_bits)
+		max_bits++;
+	i = 0;
+	while (i < max_bits)
 	{
-		while (sb->size > 0)
-			pa(sa, sb);
-		return ;
+		process_sa_to_sb(sa, sb, i);
+		process_sb_to_sa(sa, sb, i);
+		i++;
 	}
-	process_sa_bit(sa, sb, current_bit);
-	process_sb_bit(sa, sb, current_bit);
-	radix_sort_recursive(sa, sb, max_bits, current_bit + 1);
+	while (sb->size > 0)
+		pa(sa, sb);
 }
+
+
